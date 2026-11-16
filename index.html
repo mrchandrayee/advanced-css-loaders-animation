@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <title>Advanced CSS Loaders Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Advanced CSS Loaders Animation</h1>
+
+    <section class="loader-card">
+      <div class="preview">
+        <span class="loader-name">Neon Orbital</span>
+        <div class="neon-orbital" aria-label="Neon orbital loader">
+          <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="code-label">HTML + CSS</div>
+        <pre><code>&lt;div class="neon-orbital"&gt;
+  &lt;div class="ring"&gt;&lt;/div&gt;
+  &lt;div class="ring"&gt;&lt;/div&gt;
+  &lt;div class="ring"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="selector">.neon-orbital</span> {
+  position: relative;
+  width: 80px; height: 80px;
+  display: flex;
+  justify-content: center; align-items: center;
+}
+<span class="selector">.neon-orbital .ring</span> {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  mix-blend-mode: screen;
+}
+<span class="selector">.neon-orbital .ring:nth-child(1)</span> {
+  border-top: 4px solid #0ff;
+  border-left: 4px solid #0ff;
+  animation: spin-3d 2s linear infinite;
+  box-shadow: 0 0 20px #0ff, inset 0 0 20px #0ff;
+}
+<span class="selector">.neon-orbital .ring:nth-child(2)</span> {
+  border-right: 4px solid #f0f;
+  border-bottom: 4px solid #f0f;
+  animation: spin-3d 2.5s cubic-bezier(.68, 0, .2, 1) infinite;
+  box-shadow: 0 0 20px #f0f, inset 0 0 20px #f0f;
+}
+<span class="selector">.neon-orbital .ring:nth-child(3)</span> {
+  border-top: 4px solid #ff0;
+  animation: spin-3d 1.5s linear infinite reverse;
+  box-shadow: 0 0 20px #ff0, inset 0 0 20px #ff0;
+}
+@keyframes spin-3d {
+  0% { transform: rotate3d(1, 1, 1, 0deg); }
+  100% { transform: rotate3d(1, 1, 1, 360deg); }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="loader-card">
+      <div class="preview">
+        <span class="loader-name">Liquid Blob</span>
+        <div class="liquid-blob" aria-label="Morphing liquid blob loader"></div>
+      </div>
+      <div class="code-panel">
+        <div class="code-label">HTML + CSS</div>
+        <pre><code>&lt;div class="liquid-blob"&gt;&lt;/div&gt;
+
+<span class="selector">.liquid-blob</span> {
+  width: 70px; height: 70px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  animation: morph 3s ease-in-out infinite,
+             spin 4s linear infinite;
+  box-shadow: 0 10px 30px rgba(78, 205, 196, .5);
+}
+@keyframes morph {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="loader-card">
+      <div class="preview">
+        <span class="loader-name">3D Flip Box</span>
+        <div class="flip-scene" aria-label="3D flipping box loader">
+          <div class="flip-box"></div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="code-label">HTML + CSS</div>
+        <pre><code>&lt;div class="flip-box"&gt;&lt;/div&gt;
+
+<span class="selector">.flip-box</span> {
+  width: 60px; height: 60px;
+  background-color: #6c5ce7;
+  animation: flip 1.5s infinite ease-in-out;
+  box-shadow: 0 0 20px rgba(108, 92, 231, .6);
+}
+@keyframes flip {
+  0% {
+    transform: perspective(120px)
+      rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px)
+      rotateX(-180deg) rotateY(0deg);
+    background-color: #a29bfe;
+  }
+  100% {
+    transform: perspective(120px)
+      rotateX(-180deg) rotateY(-180deg);
+    background-color: #6c5ce7;
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="loader-card">
+      <div class="preview">
+        <span class="loader-name">Equalizer Wave</span>
+        <div class="wave-loader" aria-label="Equalizer wave loader">
+          <span style="--i:1"></span>
+          <span style="--i:2"></span>
+          <span style="--i:3"></span>
+          <span style="--i:4"></span>
+          <span style="--i:5"></span>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="code-label">HTML + CSS</div>
+        <pre><code>&lt;div class="wave-loader"&gt;
+  &lt;span style="--i:1;"&gt;&lt;/span&gt;
+  &lt;span style="--i:2;"&gt;&lt;/span&gt;
+  &lt;span style="--i:3;"&gt;&lt;/span&gt;
+  &lt;span style="--i:4;"&gt;&lt;/span&gt;
+  &lt;span style="--i:5;"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+<span class="selector">.wave-loader</span> {
+  display: flex; gap: 6px;
+  height: 50px; align-items: center;
+}
+<span class="selector">.wave-loader span</span> {
+  display: block;
+  width: 8px; height: 10px;
+  background: #00b894; border-radius: 4px;
+  animation: stretch 1s infinite ease-in-out;
+  animation-delay: calc(var(--i) * .1s);
+}
+@keyframes stretch {
+  0%, 100% { height: 10px; background: #00b894; }
+  50% { height: 50px; background: #55efc4; }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="loader-card">
+      <div class="preview">
+        <span class="loader-name">Radar Pulse</span>
+        <div class="radar-pulse" aria-label="Radar pulse loader"></div>
+      </div>
+      <div class="code-panel">
+        <div class="code-label">HTML + CSS</div>
+        <pre><code>&lt;div class="radar-pulse"&gt;&lt;/div&gt;
+
+/* CSS */
+<span class="selector">.radar-pulse</span> {
+  width: 20px; height: 20px;
+  background: #ff7675; border-radius: 50%;
+  position: relative;
+}
+<span class="selector">.radar-pulse::before,</span>
+<span class="selector">.radar-pulse::after</span> {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  background: inherit; border-radius: 50%;
+  z-index: 0;
+  animation: radar 2s linear infinite;
+}
+<span class="selector">.radar-pulse::after</span> {
+  animation-delay: 1s;
+}
+@keyframes radar {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 400%; height: 400%; opacity: 0; }
+}</code></pre>
+      </div>
+    </section>
+    <p class="footer-note">Five animated CSS loaders · Pure HTML &amp; CSS · No external libraries</p>
+  </main>
+</body>
+</html>
